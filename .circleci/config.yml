@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/src
 
     docker:
-      - image: circleci/openjdk:8-jdk-browsers
+      - image: circleci/openjdk:11-stretch
 
     steps:
 
@@ -16,3 +16,5 @@ jobs:
       - store_test_results:
           path: /CalculatorTest/src/test/java/
 
+      - store_artifacts:
+          path: /home/circleci/at.jku.se.prse.example.calculator/at.jku.se.prse.example.calculator/target/
