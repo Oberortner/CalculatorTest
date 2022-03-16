@@ -2,17 +2,17 @@ version: 2
 jobs:
   build:
 
-    working_directory: ~/src
+    working_directory: ~/at.jku.se.prse.example.calculator
 
     docker:
-      - image: circleci/openjdk:11-stretch
+      - image: circleci/openjdk:8-jdk-browsers
 
     steps:
 
       - checkout
 
       - store_test_results:
-          path: /CalculatorTest/src/test/java/
+          path: /home/circleci/at.jku.se.prse.example.calculator/at.jku.se.prse.example.calculator/target/surefire-reports
 
       - store_artifacts:
           path: /home/circleci/at.jku.se.prse.example.calculator/at.jku.se.prse.example.calculator/target/
