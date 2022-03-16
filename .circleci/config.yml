@@ -10,7 +10,6 @@ jobs:
     steps:
 
       - checkout
-
       - run: Calculator
 
     test:
@@ -19,11 +18,10 @@ jobs:
       docker:
         - image: circleci/openjdk:11-stretch
 
-        steps:
+      steps:
 
-          - checkout
-
-          - run: CalculatorTest
+        - checkout
+        - run: CalculatorTest
 
     workflows:
       build_and_test:
