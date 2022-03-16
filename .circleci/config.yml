@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/src
 
     docker:
-      - image: circleci/openjdk:8-jdk-browsers
+      - image: C:\Users\VN7-571G-76RQ\.jdks\openjdk-17.0.1
 
     steps:
 
