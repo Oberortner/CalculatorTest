@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
 
-    working_directory: ~/src
+    working_directory: ~/circleci-claculator
 
     docker:
       - image: circleci/openjdk:11-stretch
@@ -11,10 +11,24 @@ jobs:
 
       - checkout
 
-      - run: CalculatorTest
+      - run: Calculator
 
-      - store_test_results:
-          path: /CalculatorTest/src/test/java/
+    test:
+      working_directory: ~/circleci-claculator
 
-      - store_artifacts:
-          path: /home/circleci/at.jku.se.prse.example.calculator/at.jku.se.prse.example.calculator/target/
+      docker:
+        - image: circleci/openjdk:11-stretch
+
+        steps:
+
+          - checkout
+
+          - run: CalculatorTest
+
+    workflows:
+      build_and_test:
+        jobs:
+          -build
+          -test:
+            requires:
+              -build
